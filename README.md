@@ -8,7 +8,7 @@ $ whoami
 $ cat currently.txt
 ```
 
-- removing your tax headaches [@accordance-ai](https://accordance.ai)
+- removing your tax related headaches [@accordance-ai](https://accordance.ai)
 - making development fun and faster [@make-roro](https://tryroro.com)
 - modular electronics [@technologic-hq](https://technologic.computer)
 
