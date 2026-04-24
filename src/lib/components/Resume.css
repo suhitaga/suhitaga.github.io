@@ -1,0 +1,246 @@
+.resume {
+	width: 100%;
+	height: 100%;
+	padding: 12px;
+}
+
+.bento {
+	display: grid;
+	grid-template-columns: 1fr 1.2fr 0.8fr;
+	grid-template-rows: auto 1fr 1fr auto;
+	grid-template-areas:
+		"header   header   header"
+		"work     projects features"
+		"work     projects education"
+		"quote    quote    quote";
+	gap: 12px;
+	height: 100%;
+}
+
+.cell {
+	background: var(--bg-elevated);
+	border-radius: 2px;
+	padding: 12px;
+	overflow: hidden;
+}
+
+/* Header */
+.header {
+	grid-area: header;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px 25px 20px 0px;
+}
+
+.name-section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0;
+	min-width: 280px;
+}
+
+.tagline {
+	margin: 0;
+	opacity: 0.7;
+	font-size: 11px;
+}
+
+.contact-icons {
+	display: flex;
+	gap: 16px;
+}
+
+.social-link {
+	color: var(--accent);
+	display: inline-flex;
+	transition: color 0.3s ease, transform 0.3s ease;
+	will-change: transform;
+}
+
+/* Idle: each icon gently floats on its own rhythm */
+.social-linkedin {
+	animation: float-linkedin 3s ease-in-out infinite;
+}
+
+.social-github {
+	animation: spin-idle 6s linear infinite;
+}
+
+.social-email {
+	animation: float-email 2.5s ease-in-out infinite;
+}
+
+.social-twitter {
+	animation: wobble-idle 2s ease-in-out infinite;
+}
+
+/* Hover: each icon does something dramatic */
+.social-linkedin:hover {
+	animation: none;
+	transform: scale(1.4) rotate(-8deg);
+}
+
+.social-github:hover {
+	animation: spin-fast 0.5s linear infinite;
+}
+
+.social-email:hover {
+	animation: none;
+	transform: scale(1.3) translateY(-6px);
+}
+
+.social-twitter:hover {
+	animation: flap 0.3s ease-in-out infinite alternate;
+}
+
+/* Keyframes */
+@keyframes float-linkedin {
+	0%, 100% { transform: translateY(0) rotate(0deg); }
+	50% { transform: translateY(-4px) rotate(3deg); }
+}
+
+@keyframes spin-idle {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+@keyframes spin-fast {
+	0% { transform: rotate(0deg) scale(1.3); }
+	100% { transform: rotate(360deg) scale(1.3); }
+}
+
+@keyframes float-email {
+	0%, 100% { transform: translateY(0) scale(1); }
+	50% { transform: translateY(-3px) scale(1.05); }
+}
+
+@keyframes wobble-idle {
+	0%, 100% { transform: rotate(0deg); }
+	25% { transform: rotate(8deg); }
+	75% { transform: rotate(-8deg); }
+}
+
+@keyframes flap {
+	0% { transform: rotate(-15deg) scale(1.3) translateY(-4px); }
+	100% { transform: rotate(15deg) scale(1.3) translateY(-4px); }
+}
+
+/* Sections */
+.work {
+	grid-area: work;
+	overflow-y: auto;
+}
+
+.projects {
+	grid-area: projects;
+	overflow-y: auto;
+}
+
+.features {
+	grid-area: features;
+	overflow-y: auto;
+}
+
+.education {
+	grid-area: education;
+	overflow-y: auto;
+}
+
+.section-header {
+	margin-bottom: 8px;
+	padding-bottom: 4px;
+	border-bottom: 1px solid var(--border);
+}
+
+.section-header :global(.scattered-header) {
+	font-size: 14px;
+	height: 28px;
+	margin: 0;
+}
+
+.section-header :global(.scattered-header span) {
+	font-size: 14px;
+}
+
+/* Quote */
+.quote {
+	grid-area: quote;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 12px 24px;
+}
+
+.quote p {
+	margin: 0;
+	font-style: italic;
+	opacity: 0.6;
+	font-size: 14px;
+	text-align: center;
+}
+
+/* Section scrollbars */
+.cell::-webkit-scrollbar {
+	width: 4px;
+}
+
+.cell::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+.cell::-webkit-scrollbar-thumb {
+	background: var(--scrollbar);
+	border-radius: 2px;
+}
+
+/* Section links */
+.cell a {
+	color: var(--accent);
+	transition: color 0.3s ease-out;
+}
+
+/* Tablet: 2-column layout */
+@media (max-width: 1100px) {
+	.bento {
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: auto 1fr 1fr auto;
+		grid-template-areas:
+			"header   header"
+			"work     projects"
+			"features education"
+			"quote    quote";
+	}
+}
+
+/* Mobile: stack vertically */
+@media (max-width: 768px) {
+	.bento {
+		grid-template-columns: 1fr;
+		grid-template-rows: auto;
+		grid-template-areas:
+			"header"
+			"work"
+			"projects"
+			"features"
+			"education"
+			"quote";
+		height: auto;
+		padding-bottom: 24px;
+	}
+
+	.header {
+		flex-direction: column;
+		gap: 16px;
+		text-align: center;
+	}
+
+	.name-section {
+		flex-direction: column;
+	}
+
+	.cell {
+		overflow: visible;
+	}
+}

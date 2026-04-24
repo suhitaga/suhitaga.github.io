@@ -1,0 +1,123 @@
+.scattered-header {
+	font-family: 'Nabla', system-ui;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
+	font-variation-settings:
+		'EDPT' 100,
+		'EHLT' 12;
+	font-size: 35px;
+	height: 30px;
+	width: 100%;
+	position: relative;
+	margin: 0px auto 45px;
+	text-align: center;
+	transition: font-palette 0.3s ease-out;
+}
+
+.scattered-header.is-name {
+	font-size: 45px;
+	height: 40px;
+	font-variation-settings:
+		'EDPT' 160,
+		'EHLT' 12;
+}
+
+.scattered-header span {
+	position: absolute;
+	transition: transform 0.3s ease-out;
+}
+
+/* Safari fallback */
+.scattered-header.is-safari {
+	font-family: 'Bungee Shade', sans-serif;
+	font-weight: 400;
+	font-size: 36px;
+	color: var(--accent-yellow);
+	transition: color 0.3s ease-out;
+}
+
+.scattered-header.is-safari span {
+	color: inherit;
+	font-size: inherit;
+}
+
+.scattered-header.is-safari.is-name {
+	font-size: 48px;
+}
+
+/* Nabla font palettes */
+@font-palette-values --palette-warm {
+	font-family: Nabla;
+	override-colors:
+		0 oklch(62% 0.22 25),
+		1 oklch(68% 0.20 30),
+		2 oklch(75% 0.16 35),
+		3 oklch(75% 0.16 35),
+		4 oklch(58% 0.24 20),
+		5 oklch(82% 0.12 35),
+		6 oklch(52% 0.26 15),
+		7 oklch(68% 0.20 30),
+		8 oklch(88% 0.08 35),
+		9 oklch(98% 0.01 90);
+}
+
+@font-palette-values --palette-purple {
+	font-family: Nabla;
+	override-colors:
+		0 oklch(65% 0.18 300),
+		1 oklch(70% 0.16 305),
+		2 oklch(78% 0.14 310),
+		3 oklch(78% 0.14 310),
+		4 oklch(60% 0.20 295),
+		5 oklch(85% 0.10 315),
+		6 oklch(55% 0.22 290),
+		7 oklch(70% 0.16 305),
+		8 oklch(90% 0.08 310),
+		9 oklch(98% 0.01 90);
+}
+
+@font-palette-values --palette-blue {
+	font-family: Nabla;
+	override-colors:
+		0 oklch(58% 0.18 255),
+		1 oklch(65% 0.16 260),
+		2 oklch(75% 0.14 265),
+		3 oklch(75% 0.14 265),
+		4 oklch(52% 0.20 250),
+		5 oklch(82% 0.10 270),
+		6 oklch(48% 0.22 245),
+		7 oklch(65% 0.16 260),
+		8 oklch(88% 0.08 265),
+		9 oklch(98% 0.01 90);
+}
+
+@font-palette-values --palette-green {
+	font-family: Nabla;
+	override-colors:
+		0 oklch(65% 0.16 165),
+		1 oklch(72% 0.14 160),
+		2 oklch(80% 0.12 155),
+		3 oklch(80% 0.12 155),
+		4 oklch(58% 0.18 170),
+		5 oklch(86% 0.08 150),
+		6 oklch(52% 0.20 175),
+		7 oklch(72% 0.14 160),
+		8 oklch(90% 0.06 155),
+		9 oklch(98% 0.01 90);
+}
+
+@font-palette-values --palette-yellow {
+	font-family: Nabla;
+	override-colors:
+		0 oklch(78% 0.16 85),
+		1 oklch(82% 0.14 90),
+		2 oklch(88% 0.12 95),
+		3 oklch(88% 0.12 95),
+		4 oklch(72% 0.18 80),
+		5 oklch(92% 0.08 95),
+		6 oklch(68% 0.20 75),
+		7 oklch(82% 0.14 90),
+		8 oklch(95% 0.05 95),
+		9 oklch(98% 0.01 90);
+}
