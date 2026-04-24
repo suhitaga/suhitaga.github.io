@@ -8,9 +8,9 @@ $ whoami
 $ cat currently.txt
 ```
 
-- modular electronics
-- 12 apps in 12 months
-- making interfaces that you want to come back to
+- removing your tax headaches @accordance-ai
+- making development fun and faster @make-roro
+- modular electronics @technologic-hq
 
 ```bash
 $ ls interests/
@@ -22,4 +22,4 @@ $ ls interests/
 $ curl https://suhit.me
 ```
 
-[suhit.me](https://suhit.me) — [linkedin](https://linkedin.com/in/suhitaga) — [x](https://twitter.com/suhitdoingstuff) — [email](mailto:suhit@suhit.me)
+[suhit.me](https://suhit.me) — [linkedin](https://linkedin.com/in/suhitaga) — [x](https://twitter.com/suhitaga) — [email](mailto:suhit@suhit.me)
