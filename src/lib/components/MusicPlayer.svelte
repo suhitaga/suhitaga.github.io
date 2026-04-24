@@ -5,8 +5,8 @@
     PauseIcon,
     SkipForwardIcon,
     SkipBackIcon,
-    SpeakerSimpleHighIcon,
-    SpeakerSimpleSlashIcon,
+    SpeakerHighIcon,
+    SpeakerSlashIcon,
     VinylRecordIcon,
   } from "phosphor-svelte";
 
@@ -184,7 +184,10 @@
           }
         },
         onError: (e: { data: number }) => {
-          if ((e.data === 150 || e.data === 101) && skipCount < videoIds.length) {
+          if (
+            (e.data === 150 || e.data === 101) &&
+            skipCount < videoIds.length
+          ) {
             skipCount++;
             setTimeout(() => nextTrack(), 500);
           }
@@ -193,7 +196,8 @@
     });
   }
 
-  const IFRAME_ALLOW = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share";
+  const IFRAME_ALLOW =
+    "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share";
 
   function patchIframe(el: Element) {
     // Include all permissions YouTube expects, but omit picture-in-picture
@@ -317,7 +321,7 @@
 
   function seek(e: MouseEvent | TouchEvent) {
     if (!player || !isReady || !duration) return;
-    const bar = (e.currentTarget as HTMLElement);
+    const bar = e.currentTarget as HTMLElement;
     const rect = bar.getBoundingClientRect();
     const clientX = "touches" in e ? e.touches[0].clientX : e.clientX;
     const pct = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
@@ -438,31 +442,57 @@
         {#if isAdPlaying}
           <span class="ad-label">ad</span>
         {:else}
-          <span class="track-title" bind:this={titleEl}><span class="track-title-inner">{currentTrack?.title ?? "—"}</span></span>
-          <span class="track-artist" bind:this={artistEl}><span class="track-artist-inner">{currentTrack?.artist ?? ""}</span></span>
+          <span class="track-title" bind:this={titleEl}
+            ><span class="track-title-inner">{currentTrack?.title ?? "—"}</span
+            ></span
+          >
+          <span class="track-artist" bind:this={artistEl}
+            ><span class="track-artist-inner">{currentTrack?.artist ?? ""}</span
+            ></span
+          >
         {/if}
       </div>
 
       <!-- Transport controls -->
       <div class="transport">
-        <button class="transport-btn" onclick={prevTrack} aria-label="Previous track" disabled={!isReady}>
+        <button
+          class="transport-btn"
+          onclick={prevTrack}
+          aria-label="Previous track"
+          disabled={!isReady}
+        >
           <SkipBackIcon size={14} weight="fill" />
         </button>
-        <button class="transport-btn play-btn" onclick={togglePlay} aria-label={isPlaying ? "Pause" : "Play"} disabled={!isReady}>
+        <button
+          class="transport-btn play-btn"
+          onclick={togglePlay}
+          aria-label={isPlaying ? "Pause" : "Play"}
+          disabled={!isReady}
+        >
           {#if isPlaying}
             <PauseIcon size={16} weight="fill" />
           {:else}
             <PlayIcon size={16} weight="fill" />
           {/if}
         </button>
-        <button class="transport-btn" onclick={nextTrack} aria-label="Next track" disabled={!isReady}>
+        <button
+          class="transport-btn"
+          onclick={nextTrack}
+          aria-label="Next track"
+          disabled={!isReady}
+        >
           <SkipForwardIcon size={14} weight="fill" />
         </button>
-        <button class="transport-btn mute-btn" onclick={toggleMute} aria-label={isMuted ? "Unmute" : "Mute"} disabled={!isReady}>
+        <button
+          class="transport-btn mute-btn"
+          onclick={toggleMute}
+          aria-label={isMuted ? "Unmute" : "Mute"}
+          disabled={!isReady}
+        >
           {#if isMuted}
-            <SpeakerSimpleSlashIcon size={13} weight="fill" />
+            <SpeakerSlashIcon size={13} weight="fill" />
           {:else}
-            <SpeakerSimpleHighIcon size={13} weight="fill" />
+            <SpeakerHighIcon size={13} weight="fill" />
           {/if}
         </button>
       </div>
@@ -477,9 +507,19 @@
           ontouchstart={handleSeekStart}
           bind:this={progressBarEl}
         >
-          <svg class="squiggle-svg" viewBox="0 0 {barWidth} 12" preserveAspectRatio="none">
+          <svg
+            class="squiggle-svg"
+            viewBox="0 0 {barWidth} 12"
+            preserveAspectRatio="none"
+          >
             <!-- Track line (unplayed) — starts where squiggle ends -->
-            <line x1={(progress / 100) * barWidth} y1="6" x2={barWidth} y2="6" class="squiggle-track" />
+            <line
+              x1={(progress / 100) * barWidth}
+              y1="6"
+              x2={barWidth}
+              y2="6"
+              class="squiggle-track"
+            />
             <!-- Squiggle (played) -->
             <path d={squigglePath} class="squiggle-fill" />
           </svg>
@@ -573,7 +613,9 @@
   }
 
   @keyframes spin {
-    to { transform: rotate(360deg); }
+    to {
+      transform: rotate(360deg);
+    }
   }
 
   /* Track info */
@@ -631,8 +673,14 @@
   }
 
   @keyframes marquee {
-    0%, 15% { transform: translateX(0); }
-    85%, 100% { transform: translateX(var(--marquee-offset)); }
+    0%,
+    15% {
+      transform: translateX(0);
+    }
+    85%,
+    100% {
+      transform: translateX(var(--marquee-offset));
+    }
   }
 
   /* Transport */
@@ -654,7 +702,9 @@
     align-items: center;
     justify-content: center;
     padding: 0;
-    transition: background 0.12s ease, color 0.12s ease;
+    transition:
+      background 0.12s ease,
+      color 0.12s ease;
   }
 
   .transport-btn:hover:not(:disabled) {
@@ -736,7 +786,9 @@
     stroke-width: 2;
     stroke-linecap: round;
     filter: drop-shadow(0 0 2px var(--disc-color, var(--accent-green)));
-    transition: stroke 0.3s ease, filter 0.3s ease;
+    transition:
+      stroke 0.3s ease,
+      filter 0.3s ease;
   }
 
   .progress-knob {
