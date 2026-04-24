@@ -35,6 +35,7 @@
 	font-size: 36px;
 	color: var(--accent-yellow);
 	transition: color 0.3s ease-out;
+	font-feature-settings: normal;
 }
 
 .scattered-header.is-safari span {
