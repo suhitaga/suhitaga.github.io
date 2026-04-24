@@ -27,18 +27,25 @@ export const resumeData: ResumeData = {
 
 	work: [
 		{
+			date: "2026",
+			title: "Member of Technical Staff at Accordance",
+			link: "https://accordance.ai",
+			location: "San Francisco, CA",
+			description: "[React + Node] designing and building the world's frontier tax research software"
+		},
+		{
 			date: "2025",
 			title: "Founding Engineering at trufflepig Corp",
 			link: "https://trufflepig.ai",
 			location: "San Francisco, CA",
-			description: "[React + Rust] building spreadsheets integrated with AI from scratch"
+			description: "[React + Rust] built super fast spreadsheets integrated with AI from scratch"
 		},
 		{
 			date: "2024 — 2025",
 			title: "Founding Product Engineer and Designer at Curio Interactive Inc.",
 			link: "https://heycurio.com",
 			location: "Redwood City, CA",
-			description: "[React Native + F# + C] building amazing experiences for kids!"
+			description: "[React Native + F# + C] worked on amazing experiences for kids!"
 		},
 		{
 			date: "2023 — 2024",
